@@ -1,16 +1,16 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
-import { fetchFiles } from '../redux/apiFetchs'
+import { fetchFiles, fetchFilesWithData } from '../redux/apiFetchs'
 import Table from 'react-bootstrap/Table'
 
 
-
-export default () => {
+const HomeView = () => {
     const state = useSelector(state => state.fileSlice)
     const dispatch = useDispatch()
 
     useEffect(() => {
         dispatch(fetchFiles())
+        dispatch(fetchFilesWithData())
     }, [])
 
 
@@ -26,15 +26,18 @@ export default () => {
             <Table striped bordered hover>
                 <thead>
                     <tr>
+                        <th>#</th>
                         {state.headers.map((tableHeader, key) => (
                             <th key={key}>{tableHeader}</th>
                         ))}
                     </tr>
                 </thead>
                 <tbody>
-                    {state.files.map((file, key) => (
-                        <tr key={key} onClick={() => handleOnClick(file)}>
-                            <td>{file}</td>
+                    {state.filesWithData.map((data, key) => (
+                        <tr key={key} onClick={() => handleOnClick(data.file)}>
+                            <td>{key + 1}</td>
+                            <td>{data.file}</td>
+                            <td>{data.lines.length}</td>
                         </tr>
                     ))}
                 </tbody>
@@ -43,3 +46,5 @@ export default () => {
     )
 }
 
+
+export default HomeView

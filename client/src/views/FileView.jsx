@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import Table from 'react-bootstrap/Table'
 import { fetchFileData } from '../redux/apiFetchs'
 import { connect, useDispatch, useSelector } from 'react-redux'
-import { matchPath } from 'react-router-dom'
 
 const File = ({ match }) => {
     const state = useSelector(state => state.fileSlice)
@@ -10,9 +9,6 @@ const File = ({ match }) => {
 
     useEffect(() => {
         dispatch(fetchFileData(match.params.fileName))
-
-
-        console.log(match.params)
     }, [])
 
     return (
@@ -20,11 +16,12 @@ const File = ({ match }) => {
             <div className="text-app">
                 <h1><a href="/">Home</a></h1>
                 <h1>React Test App: {match.params.fileName}</h1>
-                <span/>
+                <span />
             </div>
             <Table striped bordered hover>
                 <thead>
                     <tr>
+                        <th>#</th>
                         {state.headers.map((tableHeader, key) => (
                             <th key={key}>{tableHeader}</th>
                         ))}
@@ -33,6 +30,7 @@ const File = ({ match }) => {
                 <tbody>
                     {state.data.map((tableData, key) => (
                         <tr key={key}>
+                            <td>{key + 1}</td>
                             <td>{tableData.file}</td>
                             <td>{tableData.text}</td>
                             <td>{tableData.number}</td>

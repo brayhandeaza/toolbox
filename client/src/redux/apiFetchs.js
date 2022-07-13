@@ -1,8 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import axios from "axios"
 
-// fetch single file data
-export const fetchFiles = createAsyncThunk("file/fetchFiles", async () => {
+// fetch Files
+export const fetchFiles = createAsyncThunk("files/fetchFiles", async () => {
+    return axios.get(`http://localhost:8000/files`).then((res) => res.data)
+})
+// fetch Files with correponding data
+export const fetchFilesWithData = createAsyncThunk("files/fetchFilesWithData", async () => {
     return axios.get(`http://localhost:8000/files/data`).then((res) => res.data)
 })
 
