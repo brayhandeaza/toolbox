@@ -1,11 +1,15 @@
 # Toolbox : Full Stack JS - Code Challenge
 
-Paso para correr este projecto:
+## Paso para correr este projecto
 
+1. Clonar el repositori: `git clone https://github.com/brayhandeaza/toolbox.git`
+2. Navega hacia el directorio del proyecto (api o client): `npm install`
+3. Desdes el directorio de `app o client` ejecuta la aplicación: `npm run start`
 
-clonar el repositori: 
-```git clone https://github.com/brayhandeaza/toolbox.git```,
+## Ejecución de pruebas (debe estar en directorio api)
 
+- Ejcutar modo prueva: `npm run test`
+- Ejcutar modo mientra la app esta correindo: `npm run testRunning`
 
 # Front-End
 
