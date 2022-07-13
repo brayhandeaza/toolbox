@@ -13,7 +13,6 @@ const HomeView = () => {
         dispatch(fetchFilesWithData())
     }, [])
 
-
     const handleOnClick = (file) => {
         window.location.href = `/${file}`
     }
