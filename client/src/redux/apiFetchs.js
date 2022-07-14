@@ -3,7 +3,7 @@ import axios from "axios"
 
 // fetch Files
 export const fetchFiles = createAsyncThunk("files/fetchFiles", async () => {
-    return axios.get(`http://localhost:8000/files`).then((res) => res.data)
+    return axios.get(`http://localhost:8000/files/list`).then((res) => res.data)
 })
 // fetch Files with correponding data
 export const fetchFilesWithData = createAsyncThunk("files/fetchFilesWithData", async () => {

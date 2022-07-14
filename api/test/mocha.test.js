@@ -8,7 +8,7 @@ chai.use(chaiHttp)
 describe('Test API', () => {
   describe('GET REQUESTS:', () => {
     it("('/files/list') `fetch all files`", (done) => {
-      chai.request(app).get('/files').end((err, res) => {
+      chai.request(app).get('/files/list').end((err, res) => {
         if (!err) {
           expect(res.status).equal(200)
           expect(res.body.files).not.equal(undefined)

@@ -35,7 +35,7 @@ const fileSlice = createSlice({
         },
         [fetchFilesWithData.fulfilled]: (state, action) => {
             state.loading = false
-            state.headers = ["file", "lines"]
+            state.headers = ["file"]
             state.filesWithData = action.payload
             state.error = ''
         },

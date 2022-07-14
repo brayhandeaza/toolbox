@@ -1,47 +1,42 @@
+import React from "react"
+import { useState } from 'react'
+import FilesWithData from "../components/FilesWithData"
+import Files from "../components/Files"
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { fetchFiles, fetchFilesWithData } from '../redux/apiFetchs'
-import Table from 'react-bootstrap/Table'
-
 
 const HomeView = () => {
+    const [isButtonWithData, setIsButtonWithData] = useState(false)
     const state = useSelector(state => state.fileSlice)
     const dispatch = useDispatch()
+
+    const handleButtonClick = (title) => {
+        if (title === "files") {
+            setIsButtonWithData(false)
+        } else {
+            setIsButtonWithData(true)
+        }
+        console.log(state)
+    }
 
     useEffect(() => {
         dispatch(fetchFiles())
         dispatch(fetchFilesWithData())
     }, [])
 
-    const handleOnClick = (file) => {
-        window.location.href = `/${file}`
-    }
 
     return (
         <div className="Home">
             <div className="text-app">
                 <h1>React Test App</h1>
             </div>
-            <Table striped bordered hover>
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        {state.headers.map((tableHeader, key) => (
-                            <th key={key}>{tableHeader}</th>
-                        ))}
-                    </tr>
-                </thead>
-                <tbody>
-                    {state.filesWithData.map((data, key) => (
-                        <tr key={key} onClick={() => handleOnClick(data.file)}>
-                            <td>{key + 1}</td>
-                            <td>{data.file}</td>
-                            <td>{data.lines.length}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </Table>
-        </div>
+            <div>
+                <button className={isButtonWithData ? "isNotActive" : "isActive"} onClick={() => handleButtonClick("files")}>Files</button>
+                <button className={!isButtonWithData ? "isNotActive" : "isActive"} onClick={() => handleButtonClick("filesWithData")}>Fils & Datas</button>
+            </div>
+            {isButtonWithData ? <FilesWithData /> : <Files />}
+        </div >
     )
 }
 
