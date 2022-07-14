@@ -66,6 +66,8 @@
 
 # API Requests
 
+### Ejemplo 1:
+
 ```json
 GET http://localhost:8000/files/list
 
@@ -81,6 +83,8 @@ GET http://localhost:8000/files/list
   ]
 }
 ```
+
+### Ejemplo 2:
 
 ```json
 GET http://localhost:8000/files/data
@@ -124,6 +128,8 @@ GET http://localhost:8000/files/data
 ]
 ```
 
+### Ejemplo 3:
+
 ```json
 GET http://localhost:8000/files/data?fileName=test3.csv
 
@@ -143,6 +149,24 @@ GET http://localhost:8000/files/data?fileName=test3.csv
       "hex": "3d7f4197a03e11d07e5a840b61cb95ec"
     },
     . . .
+  ]
+}
+```
+
+### Ejemplo 4:
+
+```json
+GET http://localhost:8000/files/test2.csv
+
+{
+  "file": "test2.csv",
+  "lines": [
+    {
+      "file": "test2.csv",
+      "text": "TuCwWZKWzmAMh",
+      "number": "760",
+      "hex": "f6102372a6ff9e9a8488c0c7f589f688"
+    }
   ]
 }
 ```
