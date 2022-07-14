@@ -63,3 +63,49 @@
 # Punto opcional global
 
 - [ ] Usar Docker o Docker Compose para correr las apps.
+
+
+# API Request
+
+```javascript
+GET http://localhost:8000/files/data
+[
+  {
+    "file": "test2.csv",
+    "lines": [
+      {
+        "file": "test2.csv",
+        "text": "epLBcYIQGgmtIZVrEn",
+        "number": "8",
+        "hex": "6f27998c9968f175a33264c66d2b9b71"
+      }
+    ]
+  },
+  {
+    "file": "test3.csv",
+    "lines": [
+      {
+        "file": "test3.csv",
+        "text": "IICbMgljzF",
+        "number": "8750",
+        "hex": "99c117c1ac999ad8db0bca1a5ac4c49b"
+      },
+      {
+        "file": "test3.csv",
+        "text": "hGyrysSfwizxIwJ",
+        "number": "7328876",
+        "hex": "d2a39d949d42c920c181c7b0d18a7c4c"
+      },
+      {
+        "file": "test3.csv",
+        "text": "XKaQsCLkUc",
+        "number": "8284",
+        "hex": "18a6aea0d4620250881585bd7ee2ab2f"
+      }
+    ]
+  }
+  . . .
+    ]
+  }
+]
+```
