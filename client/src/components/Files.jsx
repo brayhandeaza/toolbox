@@ -10,19 +10,19 @@ const HomeView = () => {
         window.location.href = `/${file}`
     }
 
+    console.log(state.loading)
+
     return (
-        <div className="FilesWithData">
+        <div className="FilesWithData" data-testid={"file-table-hader"}>
             <Table striped bordered hover>
                 <thead>
                     <tr>
-                        {state.headers.map((tableHeader, key) => (
-                            <th key={key}>{tableHeader}</th>
-                        ))}
+                        <th>File</th>
                     </tr>
                 </thead>
                 <tbody>
                     {state.filesWithData.map((data, key) => (
-                        <tr key={key} onClick={() => handleOnClick(data.file)}>
+                        <tr data-testid={data.file} key={key} onClick={() => handleOnClick(data.file)}>
                             <td>{data.file}</td>
                         </tr>
                     ))}

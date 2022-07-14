@@ -1,16 +1,15 @@
 import HomeView from "./views/HomeView"
 import FileView from "./views/FileView"
-import { Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-const App = () => {
-
+const App = (props) => {
 	return (
-		<div className="App">
+		<BrowserRouter>
 			<Switch>
 				<Route exact path='/' component={HomeView} />
 				<Route exact path='/:fileName' component={FileView} />
 			</Switch>
-		</div>
+		</BrowserRouter>
 	)
 }
 

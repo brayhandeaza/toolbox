@@ -7,7 +7,7 @@ const csvToJson = (data) => {
     const data = arrayOfData[i].split(/\t|,/)
 
     if (data.length === headers.length) {
-      if (data[0] === "" || data[1] === "" || data[2] === "" || data[3] === "") continue
+      if (data[0] === '' || data[1] === '' || data[2] === '' || data[3] === '') continue
 
       result.push({
         file: data[0],

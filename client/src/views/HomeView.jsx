@@ -2,13 +2,12 @@ import React from "react"
 import { useState } from 'react'
 import FilesWithData from "../components/FilesWithData"
 import Files from "../components/Files"
-import { useDispatch, useSelector } from 'react-redux'
+import { connect, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { fetchFiles, fetchFilesWithData } from '../redux/apiFetchs'
 
-const HomeView = () => {
+const HomeView = (props) => {
     const [isButtonWithData, setIsButtonWithData] = useState(false)
-    const state = useSelector(state => state.fileSlice)
     const dispatch = useDispatch()
 
     const handleButtonClick = (title) => {
@@ -17,7 +16,6 @@ const HomeView = () => {
         } else {
             setIsButtonWithData(true)
         }
-        console.log(state)
     }
 
     useEffect(() => {
@@ -27,18 +25,21 @@ const HomeView = () => {
 
 
     return (
-        <div className="Home">
+        <div className="Home" data-testid="homeView">
             <div className="text-app">
                 <h1>React Test App</h1>
             </div>
             <div>
                 <button className={isButtonWithData ? "isNotActive" : "isActive"} onClick={() => handleButtonClick("files")}>Files</button>
-                <button className={!isButtonWithData ? "isNotActive" : "isActive"} onClick={() => handleButtonClick("filesWithData")}>Fils & Datas</button>
+                <button className={!isButtonWithData ? "isNotActive" : "isActive"} onClick={() => handleButtonClick("filesWithData")}>Files & Datas</button>
             </div>
             {isButtonWithData ? <FilesWithData /> : <Files />}
         </div >
     )
 }
+const mapStateToProps = (state, ownProps) => ({
+    state, ownProps
+})
 
 
-export default HomeView
+export default connect(mapStateToProps)(HomeView)
