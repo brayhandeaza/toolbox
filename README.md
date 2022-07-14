@@ -64,11 +64,27 @@
 
 - [ ] Usar Docker o Docker Compose para correr las apps.
 
+# API Requests
 
-# API Request
+```json
+GET http://localhost:8000/files/list
 
-```javascript
+{
+  "files": [
+    "test1.csv",
+    "test2.csv",
+    "test3.csv",
+    "test4.csv",
+    "test5.csv",
+    "test6.csv",
+    "test9.csv"
+  ]
+}
+```
+
+```json
 GET http://localhost:8000/files/data
+
 [
   {
     "file": "test2.csv",
@@ -105,7 +121,28 @@ GET http://localhost:8000/files/data
     ]
   }
   . . .
-    ]
-  }
 ]
+```
+
+```json
+GET http://localhost:8000/files/data?fileName=test3.csv
+
+{
+  "file": "test3.csv",
+  "lines": [
+    {
+      "file": "test3.csv",
+      "text": "rPGjSPsDAzwIKR",
+      "number": "516",
+      "hex": "cf78bb2efe8921214e87af7486724db9"
+    },
+    {
+      "file": "test3.csv",
+      "text": "tKSvpVaRRKgLGTag",
+      "number": "631518413",
+      "hex": "3d7f4197a03e11d07e5a840b61cb95ec"
+    },
+    . . .
+  ]
+}
 ```
