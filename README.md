@@ -82,8 +82,8 @@ GET http://localhost:8000/files/list
 }
 ```
 
+`GET http://localhost:8000/files/data`
 ```json
-GET http://localhost:8000/files/data
 
 [
   {
