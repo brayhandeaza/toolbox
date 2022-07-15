@@ -13,6 +13,10 @@
 
 # Front-End
 
+### Preview
+![myfile](https://github.com/brayhandeaza/toolbox/blob/main/media/front-end.gif)
+
+
 ### Requisitos para el código del frontend
 
 - [x] Esta usando programación funcional y Hook Effects en React.
@@ -36,6 +40,9 @@
 - axios
 
 # Back-End
+
+### Preview
+![myfile](https://github.com/brayhandeaza/toolbox/blob/main/media/back-end.gif)
 
 ### Requisitos para el código del API:
 
