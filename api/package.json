@@ -23,6 +23,8 @@
 		"supertest": "^6.2.4"
 	},
 	"standard": {
-		"env": ["mocha"]
+		"env": [
+			"mocha"
+		]
 	}
 }

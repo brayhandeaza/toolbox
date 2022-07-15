@@ -46,7 +46,7 @@ router.get('/data', async (req, res) => {
             }
           }
         }).catch((err) => {
-          console.log(err.message.toString())
+          console.log(`${files.data.files[i]}: ${err.message.toString()}`)
         })
         result.push(filesArray && filesArray)
       }
