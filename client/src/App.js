@@ -2,7 +2,7 @@ import HomeView from "./views/HomeView"
 import FileView from "./views/FileView"
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-const App = (props) => {
+const App = () => {
 	return (
 		<BrowserRouter>
 			<Switch>
